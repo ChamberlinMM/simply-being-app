@@ -71,11 +71,20 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
           child: Opacity(
             opacity: (1 - shrinkOffset / expandedHeight),
             child: Card(
+              shape: CircleBorder(),
               elevation: 10,
               child: SizedBox(
                 height: expandedHeight,
                 width: MediaQuery.of(context).size.width / 2,
-                child: Image.asset('assets/simplybeinglogo.png'),
+                child: Container(
+                  //width: 100,
+                  child: Image.asset(
+                    'assets/simplybeinglogo.png',
+                    scale: 2.3,
+                  ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100))),
+                ),
               ),
             ),
           ),
