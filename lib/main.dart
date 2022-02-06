@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'cards.dart'
 
 void main() {
   runApp(const MyApp());
@@ -22,12 +23,10 @@ class MyApp extends StatelessWidget {
                 pinned: true,
               ),
               SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (_, index) => ListTile(
-                    title: Text("Index: $index"),
-                  ),
+                delegate: SliverChildListDelegate(
+                  [Text("Hello 1"), Text("Hello 2")],
                 ),
-              )
+              ),
             ],
           ),
         ),
