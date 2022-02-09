@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'cards.dart'
+import 'cards.dart';
+import 'goodies.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,18 +17,50 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: SafeArea(
         child: Material(
-          child: CustomScrollView(
-            slivers: [
-              SliverPersistentHeader(
-                delegate: MySliverAppBar(expandedHeight: 200),
-                pinned: true,
-              ),
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  [Text("Hello 1"), Text("Hello 2")],
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/flowerbackground.png'),
+                  fit: BoxFit.cover),
+            ),
+            child: CustomScrollView(
+              slivers: [
+                SliverPersistentHeader(
+                  delegate: MySliverAppBar(expandedHeight: 200),
+                  pinned: true,
                 ),
-              ),
-            ],
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
+                      Container(
+                        margin: EdgeInsets.only(top: 115),
+                        child: CardsForFood(
+                            imagepic: 'hello image pic',
+                            imagetext: 'hello image text'),
+                      ),
+                      CardsForFood(
+                          imagepic: 'hello image pic',
+                          imagetext: 'hello image text'),
+                      CardsForFood(
+                          imagepic: 'hello image pic',
+                          imagetext: 'hello image text'),
+                      CardsForFood(
+                          imagepic: 'hello image pic',
+                          imagetext: 'hello image text'),
+                      CardsForFood(
+                          imagepic: 'hello image pic',
+                          imagetext: 'hello image text'),
+                      GoodiesSlider(),
+                      Container(
+                          //height: 500,
+
+                          ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -54,13 +87,9 @@ class MySliverAppBar extends SliverPersistentHeaderDelegate {
         Center(
           child: Opacity(
             opacity: shrinkOffset / expandedHeight,
-            child: Text(
-              "Simply Being Meg",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 23,
-              ),
+            child: Image.asset(
+              'assets/simplybeinglogo.png',
+              //scale: 2.3,
             ),
           ),
         ),
