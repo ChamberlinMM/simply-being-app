@@ -51,10 +51,9 @@ class MyApp extends StatelessWidget {
                       CardsForFood(
                           imagepic: 'hello image pic',
                           imagetext: 'hello image text'),
-                      GoodiesSlider(),
                       Container(
                           //height: 500,
-
+                          //child: GoodiesSlider(),
                           ),
                     ],
                   ),
